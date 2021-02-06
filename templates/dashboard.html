@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %} Index {% endblock %}
+{% block body %} 
+Hi 
+Your name:{{user.name}} <br />
+Your email:{{user.email}} <br />
+Your number:{{user.number}} <br />
+<br /><br />
+<a href="{{url_for('friendlist')}}">Friends</a>
+<a href="{{url_for('addfriend')}}">Add Friend</a>
+
+{% endblock body %}

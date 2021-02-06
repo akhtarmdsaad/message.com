@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %} Index {% endblock %}
+{% block body %} 
+<ul>
+    {% for friend in friends %}
+        <li><a href="/{{friend.id}}">{{friend.name}}</a></li>
+    {% endfor %}
+</ul>
+
+
+{% endblock body %}

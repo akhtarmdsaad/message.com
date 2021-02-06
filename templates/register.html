@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %} Index {% endblock %}
+{% block body %} 
+
+<form action="{{url_for('r1')}}" method="post">
+    <input name="name" placeholder="Enter Full Name"><br>
+    <input name="email" placeholder="Enter email id"><br>
+    <input name="no" placeholder="Enter Mobile Number"><br>
+    
+    <input name="password" id="p" type="password" placeholder="Enter password"><br>
+    <input name="repassword" id="rp" type="password" placeholder="Enter password again"><br>
+    <textarea id="t"></textarea>
+    <button id="but">Register</button>
+</form>
+
+Already have account? Login here - 
+<a href="{{url_for('login')}}">Login</a><br>
+
+<script>
+    p=document.getElementById("p")
+    rp=document.getElementById("rp")
+    t=document.getElementById("t")
+    b=document.getElementById("but")
+    document.onkeyup = (e)=>{
+        if (p.value!=rp.value){
+            t.value="password doesn't match"
+            b.disabled=true;
+        }
+        else if(p.value=""){
+            t.value=""
+            b.disabled=true
+        }
+        else{
+            t.value="Password Matched"
+            b.disabled=false
+        }
+    }
+</script>
+{% endblock %}

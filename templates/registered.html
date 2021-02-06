@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %} Index {% endblock %}
+{% block body %} 
+
+<h1> Hi Mr/Mrs {{name}}</h1><br />
+<p>We are glad to see you getting registered in this site</p><br>
+If you will get any issue just email from {{email}} to <br>
+akhtarmdsaad1234@yahoo.com.<br><br>
+You can also call from {{no}} to 6370819595 for any complaint<br>
+regarding our website.
+
+<a href="{{url_for('login')}}">Login</a>
+
+{% endblock body %}
