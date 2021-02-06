@@ -68,11 +68,7 @@ def friendlist():
     friends=[]
     for f in friendlist:
         friends.append(User.query.filter_by(id=f.friendid).first())
-    return render_template("friendlist.html",friends=friends)
-        
-@app.route('/addfriend')
-def addfriend():
-    return render_template("addfriend.html")
+    return render_template("friendlist.html",friends=friends, users=User.query.all())
 
 @app.route('/addf1',methods=["POST"])
 def addf1():
@@ -86,8 +82,13 @@ def addf1():
     db.session.add(mk)
     db.session.commit()
     
-    return redirect(url_for('addfriend'))
+    return redirect(url_for('friendlist'))
 
+@app.route('/logout')
+def logout():
+    global loggedIn
+    loggedIn = None
+    return redirect(url_for('login'))
 @app.route('/<int:id>')
 def profile(id):
     #Show the profile of that user 

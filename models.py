@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy 
 
 db=SQLAlchemy()
-mydb="postgres://saad:1234@localhost/mydb"
+mydb="postgresql://postgres:1234@localhost/mydb"
 
 class User(db.Model):
     __tablename__="users"

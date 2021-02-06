@@ -2,11 +2,36 @@
 
 {% block title %} Index {% endblock %}
 {% block body %} 
-<ul>
-    {% for friend in friends %}
-        <li><a href="/{{friend.id}}">{{friend.name}}</a></li>
-    {% endfor %}
-</ul>
+<br><br>
+<div class="list-group">
+	Friends:
+	{% for friend in friends %}
+		<a href="/{{friend.id}}" class="list-group-item list-group-item-action ">{{friend.name}}</a>
+	{% endfor %}
+</div>
+    
 
+<br />
+Add Your Friend:
+<br />
+<form class="d-flex" action="{{url_for('addf1')}}" method="post" >
+      <input class="form-control me-2" name="username" type="search" id="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Add Friend</button>
+    </form>
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>	
+	var searchableWords = [
+		{% for u in users %}
+		"{{u.email}}",
+		{% endfor %}
+		""
+	];
+	
+	    $( "#search" ).autocomplete({
+			source: searchableWords
+		 });
+
+</script>
 {% endblock body %}
